@@ -219,8 +219,8 @@ var com_github_culmat_jsTreeTable =  (function(){
 					ctr.trCollapse()
 				})
 			}
-			$(tr).click(function() {
-				this.trChildrenVisible ? this.trCollapse(true) : this.trExpand(true)
+            $(tr).find('td:not(".quote-checkbox")').click(function() {
+                this.parentNode.trChildrenVisible ? this.parentNode.trCollapse(true) : this.parentNode.trExpand(true)
 			})
 		})
 		return table
