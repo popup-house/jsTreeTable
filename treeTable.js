@@ -62,7 +62,7 @@ var com_github_culmat_jsTreeTable =  (function(){
 		return tree
 	}
 	
-	function renderTree(tree, childrenAttr, idAttr, attrs, renderer, tableAttributes) {
+	function renderTree(tree, childrenAttr, idAttr, attrs, renderer, tableAttributes, ob) {
 		childrenAttr = childrenAttr || 'children'
 		idAttr = idAttr || 'id'
 		tableAttributes = tableAttributes || {}
@@ -108,7 +108,7 @@ var com_github_culmat_jsTreeTable =  (function(){
 				$(tr).attr('data-tt-parent-id', parent[idAttr])
 			}
 			if (renderer) {
-				renderer($(tr), node)
+				renderer($(tr), node, ob)
 			}else if (attrs) {
 				$.each(attrs, function(attr, desc) {
 					$(tr).append($('<td>' + node[attr] + '</td>'))
@@ -247,7 +247,7 @@ var com_github_culmat_jsTreeTable =  (function(){
 		if (options.depthFirst)
 			depthFirst(tree, options.depthFirst, options.childrenAttr)
 		var rendered = renderTree(tree, options.childrenAttr, options.idAttr,
-				options.renderedAttr, options.renderer, options.tableAttributes)
+				options.renderedAttr, options.renderer, options.tableAttributes, options.ob)
 	
 		treeTable(rendered)
 		if (options.replaceContent) {
@@ -285,7 +285,7 @@ var com_github_culmat_jsTreeTable =  (function(){
 		attr2attr : attr2attr,
 		treeTable : treeTable,
 		appendTreetable : appendTreetable,
-		jsTreeTable : '1.1',
+		jsTreeTable : '1.2',
 		register : function(target){
 			$.each(this, function(key, value){ if(key != 'register') target[key] = value})
 		}
