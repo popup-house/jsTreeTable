@@ -215,8 +215,13 @@ var com_github_culmat_jsTreeTable =  (function(){
                     $('#state', this).removeClass(iconExpand).addClass(iconCollapse)
 				}
 				$.each(this.trChildren, function(i, ctr) {
-					$(ctr).css('display', 'none')
-					ctr.trCollapse()
+                    var $ctr = $(ctr);
+                    if($ctr.data('tt-id') === $ctr.data('tt-parent-id')) {
+                        throw new Error('Found duplicate id: ' + $(ctr).data('tt-id'))
+                    } else {
+                        $ctr.css('display', 'none')
+                        ctr.trCollapse()
+                    }
 				})
 			}
             $(tr).find('td:not(".quote-checkbox")').click(function() {
@@ -285,7 +290,7 @@ var com_github_culmat_jsTreeTable =  (function(){
 		attr2attr : attr2attr,
 		treeTable : treeTable,
 		appendTreetable : appendTreetable,
-		jsTreeTable : '1.2',
+		jsTreeTable : '1.3',
 		register : function(target){
 			$.each(this, function(key, value){ if(key != 'register') target[key] = value})
 		}
