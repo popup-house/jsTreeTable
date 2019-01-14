@@ -1,0 +1,22 @@
+{
+  "name": "jstreetable",
+  "version": "1.3.1",
+  "description": "Fork of culmat/jsTreeTable, a lightweight jQuery tree table",
+  "main": "treeTable.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/popup-house/jsTreeTable.git"
+  },
+  "author": "popup-house",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/popup-house/jsTreeTable/issues"
+  },
+  "homepage": "https://github.com/popup-house/jsTreeTable#readme"
+}

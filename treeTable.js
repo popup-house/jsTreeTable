@@ -290,7 +290,7 @@ var com_github_culmat_jsTreeTable =  (function(){
 		attr2attr : attr2attr,
 		treeTable : treeTable,
 		appendTreetable : appendTreetable,
-		jsTreeTable : '1.3',
+		jsTreeTable : '1.3.1',
 		register : function(target){
 			$.each(this, function(key, value){ if(key != 'register') target[key] = value})
 		}
