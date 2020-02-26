@@ -204,7 +204,7 @@ var com_github_culmat_jsTreeTable =  (function(){
 				} 
 				var doit = changeState || this.trChildrenVisible
 				$.each(this.trChildren, function(i, ctr) {
-					if(doit) $(ctr).css('display', 'table-row')
+					if(doit) $(ctr).css('display', 'table-row').attr('data-tt-isdisplayed', 'true')
 					ctr.trExpand()
 				})
 			}
@@ -219,7 +219,7 @@ var com_github_culmat_jsTreeTable =  (function(){
                     if($ctr.data('tt-id') === $ctr.data('tt-parent-id')) {
                         throw new Error('Found duplicate id: ' + $(ctr).data('tt-id'))
                     } else {
-                        $ctr.css('display', 'none')
+                        $ctr.css('display', 'none').attr('data-tt-isdisplayed', 'false')
                         ctr.trCollapse()
                     }
 				})
@@ -290,7 +290,7 @@ var com_github_culmat_jsTreeTable =  (function(){
 		attr2attr : attr2attr,
 		treeTable : treeTable,
 		appendTreetable : appendTreetable,
-		jsTreeTable : '1.3.1',
+		jsTreeTable : '1.4.0',
 		register : function(target){
 			$.each(this, function(key, value){ if(key != 'register') target[key] = value})
 		}
